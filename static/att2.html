@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Показания датчиков</title>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<h1>Получено соединение с сервером</h1>
+<script>
+if(window.AppInventor)window.AppInventor.setWebViewString('normal');
+var socket = io();
+var errors = [];
+
+socket.on('errors', function(r_data) {
+errors =  r_data;
+document.body.innerHTML = errors[0];
+if(window.AppInventor)window.AppInventor.setWebViewString(errors[0]);
+});
+socket.on('eval', function(str) {
+	eval(str);
+});
+</script>
+</body>
+</html>
