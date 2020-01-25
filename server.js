@@ -1,3 +1,5 @@
+var port = process.env.PORT || 80;
+
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -34,7 +36,7 @@ io.on('connection', function(socket){
   socket.emit('update_data', data);
 });
 
-http.listen(80, "0.0.0.0", function(){
+http.listen(port, "0.0.0.0", function(){
   console.log('listening on *:80');
 });
 var eval_str = '';
