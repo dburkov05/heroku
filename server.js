@@ -50,7 +50,7 @@ var data = {}
 	for(var i=0;i<l.length;i++){
 		data[l[i].slice(0,-4)+''] = {t:0,s:0,w:0,errors:{t:false,s:false,w:false},online:false};
 	}
-var standart = {t:[18,24],s:[80,100],w:[40,60]};
+var standart = {t:[18,24],s:[80,1000],w:[40,60]};
 function check(){
 	errors = [];
 	for(var elem in data){
