@@ -30,7 +30,10 @@ app.get('/eval', function(req, res) {
     res.send('Done!');
 	eval_str = req.query["str"];
 });
-
+app.get('/clear', function(req, res) {
+    res.send('Done!');
+	data = {};
+});
 io.on('connection', function(socket){
   console.log('new connected');
   socket.emit('update_data', data);
@@ -47,7 +50,7 @@ var data = {}
 	for(var i=0;i<l.length;i++){
 		data[l[i].slice(0,-4)+''] = {t:0,s:0,w:0,errors:{t:false,s:false,w:false},online:false};
 	}
-var standart = {t:[15,20],s:[80,100],w:[40,60]}
+var standart = {t:[18,24],s:[80,100],w:[40,60]};
 function check(){
 	errors = [];
 	for(var elem in data){
